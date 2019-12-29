@@ -567,9 +567,9 @@ class Pick extends React.Component {
     );
   };
 
-  componentWillReceiveProps(newProps: Props) {
-    if (this.props.isOpen !== newProps.isOpen) {
-      if (newProps.isOpen) {
+  componentDidUpdate(oldProps: Props) {
+    if (oldProps.isOpen !== this.props.isOpen) {
+      if (this.props.isOpen) {
         this.setState({ showMask: true }, () => {
           if (
             Platform.OS !== "ios" &&
